@@ -1,0 +1,217 @@
+@import "data.less";
+
+body, p, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+    padding: 0;
+}
+
+input, textarea {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: Arial;
+    border: none;
+}
+
+// Иконка удаления, она скрыта (opacity: 0;)
+.x-svg {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .75rem;
+    box-shadow: 1px 1px 5px grey;
+    opacity: 0;
+    transition: all .5s linear;
+    background-color: white;
+    z-index: 1;
+    img {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+    }
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 @basic;
+    box-sizing: border-box;
+    h1 {
+        color: blue;
+        padding-bottom: 1rem;
+        font-size: 2rem;
+        font-weight: normal;
+    }
+    &.main {
+        padding-top: 1.25rem;
+        min-height: 700px;
+        background-color: @color-light;
+        &.calendar {
+            padding-right: 0;
+        }
+    }
+    &:after {
+        .clearfix;
+    }
+}
+
+.row {
+    margin: 0 @basic-minus;
+}
+
+// header
+header {
+    position: relative;
+    background-color: @color-dark;
+    font-size: 1.5rem;
+    box-shadow: 0 2px @color-normal;
+    .container {
+        padding: 0;
+    }
+}
+
+nav {
+    position: relative;
+    height: 60px;
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    .home {
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        left: @basic;
+        z-index: 1;
+    }
+    .button {
+        position: absolute;
+        top: 20px;
+        right: @basic;
+        width: 20px;
+        height: 20px;
+        &.in > span {
+            background-color: transparent;
+            &:before, &:after {
+                top: 0;
+                background-color: red;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    .button > span {
+        display: block;
+        background-color: white;
+        height: 2px;
+        width: 100%;
+        border-radius: 1px;
+        position: absolute;
+        left: 0;
+        top: 9px;
+        &:before, &:after {
+            content: "";
+            display: block;
+            background-color: white;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            position: absolute;
+            left: 0;
+        }
+        &:before {
+            top: -7px;
+        }
+        &:after {
+            top: 7px;
+        }
+    }
+    .button.in > span {
+        background-color: transparent;
+        &:before, &:after {
+            top: 0;
+            background-color: red;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+ul.menu {
+    list-style-type: none;
+    text-align: center;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: @color-normal;
+    border-bottom: solid 3px @color-dark;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    &.in {
+        height: auto;
+    }
+    li {
+        display: block;
+    }
+    a {
+        transition: color 1s ease;
+        &.nav {
+            color: white;
+        }
+        &:hover, &.nav.active {
+            color: red;
+        }
+    }
+}
+@media (min-width: 550px) {
+    header {
+        .container{
+            padding: 0 @basic;
+        }
+    }
+    nav {
+        .home {
+            left: 0;
+        }
+        .button {
+            display: none;
+        }
+    }
+    ul.menu {
+        height: auto;
+        background-color: transparent;
+        text-align: right;
+        top: 30px;
+        li {
+            display: inline-block;
+        }
+        a {
+            margin-left: 1rem;
+        }
+    }
+}
+
+footer {
+    padding-top: 1rem;
+    height: 4rem;
+}
+

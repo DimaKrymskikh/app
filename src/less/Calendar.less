@@ -1,0 +1,173 @@
+@import "data.less";
+
+.calendar-top {
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+    margin-right: @basic;
+    border-bottom: solid 1px black;
+    .search {
+        padding: 5px 0;
+        width: 0;
+        transition: width 1s ease;
+        overflow: hidden;
+        &.in {
+            width: 100%;
+            overflow: visible;
+        }
+    }
+    .search-list {
+        position: relative;
+        width: 100%;
+        .list-notes {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            box-shadow: 2px 2px @color-shadow;
+            overflow: hidden;
+            li {
+                padding: .25rem;
+            }
+            &.in {
+                height: auto;
+            }
+        }
+    }
+    .left-col, .right-col {
+        position: relative;
+        .search-field {
+            padding-left: 2.5rem;
+        }
+        input {
+            width: 100%;
+            padding: .5rem;
+            box-sizing: border-box;
+        }
+        img {
+            position: absolute;
+            top: 4px;
+        }
+        .magnifying-glass {
+            top: 8px;
+            left: 5px;
+            position: absolute;
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+        .month-year {
+            display: inline-block;
+            font-size: 1.75rem;
+            width: 200px;
+            text-align: center;
+            padding-left: 24px;
+        }
+    }
+    .right-col {
+        margin-bottom: .5rem;
+    }
+    &:after {
+        .clearfix;
+    }
+}
+
+.week, .month {
+    list-style: none;
+    width: 100%;
+    &:after {
+        .clearfix;
+    }
+}
+
+.month {
+    margin-right: @basic-minus;
+}
+
+.week-day, .month-day {
+    display: block;
+    width: 14.285714%;
+    float: left;
+    div {
+	overflow: hidden;
+	font-variant: small-caps;
+	text-overflow: ellipsis;
+    }
+}
+
+.week-day {
+    padding-bottom: .5rem; 
+    div {
+        font-weight: bold;
+	margin-right: @basic;
+	margin-bottom: @basic-half;
+    }
+}
+
+.month-day {
+    .date {
+        font-weight: bold;
+        padding: .65rem .5rem .65rem .5rem;
+    }
+    .note-ev, .note-p, .note-d {
+        padding: 0 .5rem .65rem .5rem;
+    }
+    .note-ev{
+        font-weight: bold;
+    }
+    & > div {
+        height: 40px;
+        border-radius: .5rem;
+	margin-right: @basic;
+	margin-bottom: @basic;
+    }
+    .yes, .today, .out {
+	cursor: pointer;
+	box-shadow: 0 0 5px @color-shadow;
+	transition: all .5s ease;
+    }
+    .yes {
+        background-color: white;
+    }
+    .today {
+        background-color: green;
+    }
+    .out {
+        color: gray;
+        background-color: lightgray;
+    }
+    .yes.event, .out.event {
+	background-color: #c2ccff;
+    }
+    .today.event {
+        background-color: orange;
+    }
+    .yes.event_old, .out.event_old {
+	background-color: #ffbaba;
+    }
+}
+
+
+
+@media (min-width: 550px) {
+    .calendar-top {
+        .left-col, .right-col {
+            float: right;
+            width: 50%;
+        }
+        .right-col {
+            margin-bottom: 0;
+        }
+    }
+    .month-day > div {
+        height: 90px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .month-day > div {
+        height: 145px;
+    }
+}
