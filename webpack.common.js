@@ -4,11 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: ['babel-polyfill', './src/js/index.js']
+        app: ['babel-polyfill', './src/index.js']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: './[name].bundle.js',
+        publicPath: '/'
     },
     
     module: {
@@ -18,7 +19,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['babel-preset-env']
+                    presets: ['env', 'react', 'stage-2']
                 }
             }
         }, {

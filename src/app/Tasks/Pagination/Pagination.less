@@ -1,0 +1,49 @@
+@import "../../../data.less";
+
+.Pagination {
+    .input-button {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        &:after {
+            .clearfix;
+        }
+    }
+    .field-input, .field-button {
+        float: left;
+    }
+    .field-input {
+        width: 75%;
+        padding-right: 1rem;
+    }
+    input {
+        padding: .5rem;
+        font-size: 1.25rem;
+    }
+    .field-button {
+        width: 25%;
+    }
+    
+    article {
+        display: inline-block;
+        width: 50%;
+        margin: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .list-cards {
+        min-height: 500px;
+        margin-bottom: 1rem;
+    }
+    .card {
+        background-color: white;
+        padding: 1rem;
+        margin: 0 1rem 1rem 0;
+        h2 {
+            margin: .5rem 0;
+            color: brown;
+            font-weight: bold;
+        }
+    }
+}
+

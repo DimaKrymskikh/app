@@ -1,0 +1,153 @@
+@import "./data.less";
+
+body, p, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: blue;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: @color-dark;
+    margin: 2rem 0 .75rem 0;
+}
+p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+input, textarea {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: Arial;
+    border: none;
+}
+
+button {
+    font-size: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    background-color: @color-normal;
+    color:  azure;
+    border: solid 2px @color-dark;
+    border-radius: .5rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    &:hover {
+        background-color: @color-dark;
+    }
+}
+
+@media (min-width: 550px) {
+    button {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 @basic;
+    box-sizing: border-box;
+    &.main {
+        padding-top: 80px;
+        min-height: 700px;
+        background-color: @color-light;
+        padding-bottom: 2rem;
+    }
+    &:after {
+        .clearfix;
+    }
+}
+
+.row {
+    margin: 0 @basic-minus;
+}
+
+footer {
+    padding-top: 1rem;
+    height: 4rem;
+}
+
+main {
+    width: 100%;
+    float: left;
+    padding: 0 @basic @basic @basic;
+    box-sizing: border-box;
+    min-height: 1rem;
+}
+
+aside {
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    ul {
+        color: darkolivegreen;
+        font-size: 1.5rem;
+        list-style-type: none;
+    }
+    li {
+        padding-left: @basic;
+    }
+    .aside-button {
+        position: fixed;
+        top: 80px;
+        right: @basic;
+        width: 20px;
+        height: 20px;
+        span {
+            display: block;
+            background-color: black;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            position: absolute;
+            left: 0;
+            top: 9px;
+            &:before, &:after {
+                content: "";
+                display: block;
+                background-color: black;
+                height: 2px;
+                width: 100%;
+                border-radius: 1px;
+                position: absolute;
+                left: 0;
+            }
+            &:before {
+                top: -7px;
+            }
+            &:after {
+                top: 7px;
+            }
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    main {
+        width: 75%;
+    }
+    aside {
+        width: 25%;
+        padding-right: @basic;
+        .aside-button {
+            display: none;
+        }
+    }
+}

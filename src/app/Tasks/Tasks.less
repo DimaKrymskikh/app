@@ -1,0 +1,44 @@
+@import "../../data.less";
+
+.Tasks {
+    p {
+        margin-bottom: 2rem;
+    }
+    aside {
+        position: fixed;
+        z-index: 10;
+        top: 110px;
+        right: -210px;
+        background-color: @color-light;
+        width: 200px;
+        box-shadow: 0 0 5px gray;
+        transition: all 1s ease;
+        &.in {
+            right: 0;
+        }
+        ul {
+            margin: 1rem 0;
+        }
+        li {
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+        }
+        a {
+            text-decoration: none;
+            color: @color-dark;
+            &.active {
+                color: red;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 550px) {
+    .Tasks {
+        aside {
+            position: static;
+            box-shadow: none;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@color-loader: red;
+@color: #ffefcc;
+@border-width: 5px;
+@diameter: 30px;
+@border-radius: 25px;
+@left-span: 2*@diameter;
+@top-span: 12px;
+
+.Loader {
+    position: relative;
+    color: @color-loader;
+    font-size: 2rem;
+    z-index: 10;
+    span {
+        position: absolute;
+        left: @left-span;
+        top: @top-span;
+    }
+    .circle {
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        width: @diameter;
+        height: @diameter;
+        margin: 0;
+        border-left: solid @color-loader;
+        border-top: solid @color-loader;
+        border-right: solid @color-loader;
+        border-bottom: solid @color;
+        border-width: @border-width;
+        border-radius: @border-radius;
+        animation: cir infinite 1s linear;
+    }
+    @keyframes cir {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

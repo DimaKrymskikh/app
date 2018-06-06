@@ -1,0 +1,215 @@
+@import "../../data.less";
+
+
+@move-left: 0;
+@move-left-minus: -180px;
+@keyframes move {
+    0% {
+        left: @move-left-minus;
+    }
+    15% {
+        left: @move-left;
+    }
+    85% {
+        left: @move-left;
+    }
+    100% {
+        left: @move-left-minus;
+    }
+}
+
+.Weather {
+    aside {
+        position: fixed;
+        z-index: 10;
+        top: 110px;
+        right: -260px;
+        padding: @basic;
+        background-color: @color-light;
+        width: 250px;
+        height: 350px;
+        overflow: auto;
+        box-shadow: 0 0 5px gray;
+        transition: all 1s ease;
+        &.in {
+            right: 0;
+        }
+        ul {
+            p {
+                padding-bottom: .5rem;
+            }
+        }
+        li {
+            position: relative;
+            color: darkorange;
+            margin-bottom: .5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            span {
+                color: green;
+                position: absolute;
+                top: -3px;
+                left: 0;
+                display: none;
+                &.in {
+                    display: inline-block;
+                }
+            }
+        }
+        h2 {
+            color: darkolivegreen;
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-top: 2rem;
+            margin-bottom: .5rem;
+        }
+        h3 {
+            color: darkorange;
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-bottom: .25rem;
+        }
+        div {
+            margin-bottom: .5rem;
+        }
+        span {
+            color: darkorange;
+            font-size: 1.2rem;
+        }
+        input {
+            width: 3rem;
+            margin: 0 .5rem;
+        }
+        button {
+            margin-top: 1rem;
+        }
+    }
+    .row-cities {
+        min-height: 650px;
+    }
+    .note {
+        position: fixed;
+        top: 170px;
+        left: @move-left-minus;
+        display: inline-block;
+        font-size: 1.2rem;
+        padding: .5rem 1rem;
+        border-radius: 0 .5rem .5rem 0;
+        z-index: 1;
+        &.good {
+            color: green;
+            background-color: rgba(0, 128, 0, .2);
+            animation: move 3s linear infinite;
+        }
+        &.bad {
+            color: red;
+            background-color: rgba(255, 0, 0, .2);
+            animation: move 3s linear infinite;
+        }
+    }
+    .new-attempt {
+        text-align: center;
+        span {
+            display: inline-block;
+            padding: .5rem;
+            margin-top: 1rem;
+            color: @color-dark;
+            background-color: #ffefcc;
+            border: solid 1px @color-dark;
+            cursor: pointer;
+        }
+    }
+    .await {
+        text-align: center;
+        span {
+            display: inline-block;
+            padding: .5rem;
+            margin-top: 1rem;
+            color: gray;
+            background-color: white;
+            border: solid 1px white;
+        }
+    }
+    article {
+        display: inline-block;
+        width: 250px;
+        padding: 1rem;
+        margin: 0 @basic @basic 0;
+        background-color: white;
+        box-shadow: 0 0 5px @color-shadow;
+        box-sizing: border-box;
+        position: relative;
+        .name {
+            font-size: 1.5rem;
+            padding-bottom: .5rem;
+        }
+        .icon {
+            height: 100px;
+            text-align: center;
+            img {
+                height: 100%;
+            }
+        }
+        .other {
+            padding-bottom: .25rem;
+        }
+    }
+
+    .weather-form {
+        p {
+            color: darkorange;
+            padding-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+    }
+
+    main {
+        .text {
+            display: block;
+            color: red;
+            font-size: 2rem;
+            &.out {
+                display: none;
+            }
+        }
+    }
+
+
+    .form-row {
+        padding-bottom: 1.5rem;
+        .form-left {
+            width: 75%;
+            float: left;
+            padding-right: @basic;
+            box-sizing: border-box;
+            input {
+                width: 100%;
+                font-size: 1.25rem;
+                padding: .5rem;
+                border: solid 2px white;
+                border-radius: .5rem;
+                box-sizing: border-box;
+            }
+        }
+        .form-right {
+            width: 25%;
+            float: right;
+        }
+        &:after {
+            .clearfix;
+        }
+    }
+}
+
+
+@media (min-width: 550px) {
+    .Weather {
+        aside {
+            position: static;
+            box-shadow: none;
+            height: auto;
+            padding: 0;
+        }
+    }
+}
+

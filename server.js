@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use(favicon(path.join(__dirname, 'index.ico')));
+app.use(favicon(path.join(__dirname, 'src/index.ico')));
 
 
 app.get('*', (req, res) => {

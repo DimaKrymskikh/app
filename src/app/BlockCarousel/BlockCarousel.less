@@ -1,0 +1,84 @@
+// Ширина экрана
+@width: 900px;
+
+// Размеры кнопок
+@font-size: 2rem;
+@b-height: 75%;
+@b-width: @font-size + 1rem;
+@border-width: 2px;
+
+// Отступы позиционирования кнопок 
+@left-min: -@b-width;
+@left-max: -@border-width;
+@right-min: -@b-width;
+@right-max: -@border-width;
+
+// Цвета кнопок
+@color: white;
+@color-light: rgba(255, 255, 255, .25);
+
+.BlockCarousel {
+    .screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: @width;
+        overflow: hidden;
+        .row-circles {
+            position: absolute;
+            bottom: .5rem;
+            z-index: 1;
+            width: 200px;
+            text-align: center;
+            span {
+                display: inline-block;
+                margin: 0.25rem;
+                height: .5rem;
+                width: .5rem;
+                border: solid 1px gray;
+                border-radius: .25rem;
+            }
+            span.active {
+                background-color: gray;
+            }
+        }
+        button {
+            display: inline-block;
+            height: @b-height;
+            width: @b-width;
+            position: absolute;
+            font-size: @font-size;
+            background-color: @color-light;
+            margin: 0;
+            padding: 0;
+            border: solid @border-width @color;
+            border-radius: 0;
+            box-sizing: border-box;
+            transition: all .5s ease;
+            &:nth-last-child(2) {
+                left: @left-min;
+                border-radius: 0 @font-size @font-size 0;
+            }
+            &:last-child {
+                right: @right-min;
+                border-radius:  @font-size 0 0 @font-size;
+            }
+        }
+        &:hover button:nth-last-child(2) {
+            left: @left-max;
+        }
+        &:hover button:last-child {
+            right: @right-max;
+        }
+    }
+    .frame{
+        position: relative;
+        display: block;
+        width: 100%;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

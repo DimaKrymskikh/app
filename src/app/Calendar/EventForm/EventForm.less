@@ -1,0 +1,78 @@
+@import "../../../data.less";
+
+// Форма записи событий
+.EventForm {
+    .monitor {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.2;
+        z-index: 1;
+        &.in {
+            display: block;
+        }
+    }
+
+    .form {
+        position: absolute;
+        height: 0;
+        max-width: 400px;
+        overflow: hidden;
+        z-index: 2;
+        .form-date {
+            color: blue;
+            font-size: 1.25rem;
+            margin: .5rem;
+        }
+        form {
+            padding: 1.25rem;
+            background-color: @color-light;
+            position: relative;
+            border: solid 1px @color-dark;
+            border-radius: 20px;
+            .field {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        input, textarea {
+            padding: .5rem;
+            font-size: 1.25rem;
+        }
+        .field-button {
+            &:after {
+                .clearfix;
+            }
+        }
+        .button {
+            width: 50%;
+            float: left;
+            cursor: pointer;
+            & > div {
+                margin-right: 1rem;
+            }
+            & {
+                + .button > div {
+                    margin-right: 0;
+                    margin-left: 1rem;
+                }
+            }
+        }
+        input[type='button'] {
+            color: orangered;
+            background-color: @color-normal;
+            border: solid 1px @color-dark;
+            border-radius: .5rem;
+            cursor: pointer;
+            transition: all .5s linear;
+            &:hover {
+                background-color: @color-dark;
+            }
+        }
+        &.in {
+           height: auto; 
+        }
+    }
+}

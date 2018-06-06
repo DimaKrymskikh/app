@@ -1,0 +1,52 @@
+// Стили пагинации
+@dark: goldenrod;
+@light: khaki;
+@active: red;
+@active-light: white;
+@pasive: gray;
+@pasive-light: lightgray;
+
+.RowPagination {
+    display: flex;
+    padding: 1rem;
+    font-size: 1.5rem;
+    button {
+        padding: 0;
+        margin: 0 .5rem 0 0;
+        height: 30px;
+        width: 40px;
+        background-color: @light;
+        color:  @dark;
+        border: solid 2px @dark;
+        border-radius: 0;
+        transition: all .5s ease;
+        cursor: pointer;
+        &.active {
+            background-color: @active;
+            color: @active-light;
+            cursor: text;
+        }
+        &.pasive {
+            cursor: text;
+        }
+        &.pasive, &.pasive:hover {
+            background-color: @pasive-light;
+            border-color: @pasive-light;
+            color: @pasive;
+        }
+        &:first-child {
+            border-radius: .75rem 0 0 .75rem;
+        }
+        &:last-child {
+            border-radius: 0 .75rem .75rem 0;
+        }
+        &:hover {
+            background-color: @active;
+            color: white;
+        }
+    }
+    span {
+        margin-right: .5rem;
+        color: @dark;
+    }
+}

@@ -1,0 +1,146 @@
+@import "../../data.less";
+
+header.Menu {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: @color-dark;
+    font-size: 1.5rem;
+    box-shadow: 0 2px @color-normal;
+    .container {
+        padding: 0;
+    }
+
+    nav {
+        position: relative;
+        height: 60px;
+        a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        .home {
+            display: inline-block;
+            position: absolute;
+            top: 8px;
+            left: @basic;
+            z-index: 2;
+        }
+        .button {
+            position: absolute;
+            top: 20px;
+            right: @basic;
+            width: 20px;
+            height: 20px;
+            &.in > span {
+                background-color: transparent;
+                &:before, &:after {
+                    top: 0;
+                    background-color: red;
+                }
+                &:before {
+                    transform: rotate(45deg);
+                }
+                &:after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        .button > span {
+            display: block;
+            background-color: white;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            position: absolute;
+            left: 0;
+            top: 9px;
+            &:before, &:after {
+                content: "";
+                display: block;
+                background-color: white;
+                height: 2px;
+                width: 100%;
+                border-radius: 1px;
+                position: absolute;
+                left: 0;
+            }
+            &:before {
+                top: -7px;
+            }
+            &:after {
+                top: 7px;
+            }
+        }
+        .button.in > span {
+            background-color: transparent;
+            &:before, &:after {
+                top: 0;
+                background-color: red;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    ul.menu {
+        list-style-type: none;
+        text-align: center;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        background-color: @color-normal;
+        border-bottom: solid 3px @color-dark;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        z-index: 1;
+        &.in {
+            height: auto;
+        }
+        li {
+            display: block;
+        }
+        a {
+            transition: color 1s ease;
+            &.nav {
+                color: white;
+            }
+            &:hover, &.nav.active {
+                color: red;
+            }
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    header.Menu {
+        .container{
+            padding: 0 @basic;
+        }
+        nav {
+            .home {
+                left: 0;
+            }
+            .button {
+                display: none;
+            }
+        }
+        ul.menu {
+            height: auto;
+            background-color: transparent;
+            text-align: right;
+            top: 30px;
+            li {
+                display: inline-block;
+            }
+            a {
+                margin-left: 1rem;
+            }
+        }
+    }
+}
