@@ -2,15 +2,13 @@ export const notes = {};
 	
 //Получаем список записей в хранилище
 notes.getList = str => {
-    const reg = new RegExp(str, 'i');
-    
     const listNotes = [];
     for(let i =0; i < localStorage.length; i++) {
         let key = localStorage.key(i).trim();
         if( /^\d*\.\d*\.\d{4}$/.test(key) ) {
             let note = localStorage.getItem(key);
             const arr = note.split("{||}");
-            if(reg.test(arr[0])) {
+            if(arr[0].includes(str)) {
                 listNotes.push({
                     key: localStorage.key(i),
                     event: arr[0],
