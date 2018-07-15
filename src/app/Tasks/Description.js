@@ -26,6 +26,21 @@ class Description extends React.Component {
                 <p>
                     Викторина из пяти вопросов по творчеству Александра Сергеевича Пушкина.
                 </p>
+                <h2>Геолокация</h2>
+                <p>
+                    Определяется местоположение при помощи интерфейса&ensp;
+                    <a 
+                        href='https://developer.mozilla.org/en-US/docs/Web/API/Geolocation' 
+                        target='_blank' 
+                        rel="noopener noreferrer" 
+                    >
+                        Geolocation
+                    </a>.
+                    Данные позиционируются на&ensp;
+                    <a href='https://tech.yandex.ru/maps/jsapi/' target='_blank' rel="noopener noreferrer" >
+                        JavaScript API Яндекс.Карт
+                    </a>.
+                </p>
             </div>
         );
     }

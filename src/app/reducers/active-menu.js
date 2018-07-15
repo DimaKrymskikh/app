@@ -1,4 +1,4 @@
-export const activeMenu = (state = {}, action) => {
+export const activeMenu = (state = {name: ''}, action) => {
     if(action.type === 'SET_ACTIVE_PAGE') {
         return {name: action.name};
     }

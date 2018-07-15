@@ -9,13 +9,14 @@ const setup = () => {
     const component = shallow(
         <Form {...actions} />
     );
+    console.log(component.children())
     return {
         actions: actions,
         button: component.find('button')
     };
 };
 
-describe('Form component', () => {
+describe('Weather: Form component', () => {
     it('Вызов addCity при клике', () => {
         const {actions, button} = setup();
         button.simulate('click');

@@ -8,6 +8,7 @@ import Description from './Description';
 import Pagination from './Pagination/Pagination';
 import Carousel from './Carousel/Carousel';
 import Quiz from './Quiz/Quiz';
+import Geolocation from './Geolocation/Geolocation';
 
 import './Tasks.less';
 
@@ -53,6 +54,8 @@ class Tasks extends React.Component {
                                 <Route path={`${this.props.match.path}/pagination`} component={Pagination} />
                                 <Route path={`${this.props.match.path}/carousel`} component={Carousel} />
                                 <Route path={`${this.props.match.path}/quiz`} component={Quiz} />
+                                <Route path={`${this.props.match.path}/geolocation`} component={Geolocation} />
+                                <Route component={Description} />
                             </Switch>
                         </main>
                         <aside>
@@ -90,6 +93,14 @@ class Tasks extends React.Component {
                                         to={`${this.props.match.url}/quiz`}
                                     >
                                         Викторина
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link 
+                                        className={this.getActive('geolocation')}
+                                        to={`${this.props.match.url}/geolocation`}
+                                    >
+                                        Геолокация
                                     </Link>
                                 </li>
                             </ul>

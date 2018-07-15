@@ -1,0 +1,20 @@
+@color-border: goldenrod;
+
+.Geolocation {
+    .map, .err {
+        height: 300px;
+        margin-bottom: 1rem;
+    }
+    .map {
+        border: 1px solid @color-border;
+    } 
+    .err {
+        color: red;
+    }
+    
+    @media (min-width: 550px) {
+        .map, .err {
+            height: 500px;
+        }
+    }
+}
