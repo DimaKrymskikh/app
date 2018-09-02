@@ -32,6 +32,10 @@ class Calendar extends React.Component {
         this.inputEvent = this.formEvent["event"];
         this.inputParticipants = this.formEvent["participants"];
         this.textareaDescription = this.formEvent["description"];
+        dataLayer = dataLayer || [];
+        dataLayer.push({
+            'page': 'Календарь'
+        });
     }
     
     visibilityForm(d, m, year) {
